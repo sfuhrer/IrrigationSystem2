@@ -2,7 +2,7 @@
 
 timestamp=`date +%Y-%m-%d_%H-%M-%S`
 
-filename=$timestamp".txt"
+filename="log/"$timestamp".txt"
 #filename="test.txt"
 
 touch $filename
