@@ -20,6 +20,8 @@ pressure = format(bme280data.pressure * 100, ".1f")
 #print("Pressure(Pa)", pressure)
 
 out_string = str(temperature) + "-" + str(humidity) + "-" + str(pressure)
-print(out_string)
+#print(out_string)
 
+sys.stdout.write(out_string)
+sys.stdout.flush()
 sys.exit(0)

@@ -2,8 +2,8 @@
 
 timestamp=`date +%Y-%m-%d_%H-%M-%S`
 
-filename="log/"$timestamp".txt"
-filename="test"
+filename="log/$"timestamp".txt"
+#filename="test"
 
 touch $filename
 echo  "Created file: "$filename
@@ -12,25 +12,19 @@ echo  "Created file: "$filename
 #printf "%20s\n" "------------------"
 
 while true
-do
-	python drivers/bme280_read.py | {
-  		while IFS= read -r line
-  		do
-    			lastline="$line"
-  		done
+do  	
+	output=$(python drivers/bme280_read.py)
 
-  		echo "Last measurements (temp-hum-pres): $lastline"
-	}
-
-	IFS='-' #setting comma as delimiter
-	read -a strarr <<<"$lastline" #reading str as an array as tokens separated by IFS  
-	echo "Temp : ${strarr[0]} "  
-	echo "Hum : ${strarr[1]} "  
-	echo "Pres : ${strarr[2]}" 
+	IFS='-' #setting - as delimiter
+	read -a strarr <<<"$output" #reading str as an array as tokens separated by IFS  
+	temp=${strarr[0]}
+	hum=${strarr[1]}
+	pres=${strarr[2]}
 
 	temp_pi=$(vcgencmd measure_temp | egrep -o '[0-9]*\.[0-9]*')
 	timestamp=`date +%Y-%m-%d_%H-%M-%S`
-	#echo "$temp_pi $timestamp"
-	echo "$timestamp $temp_pi" >> $filename
+
+	echo "$timestamp $temp_pi $temp $hum $pres"
+	echo "$timestamp $temp_pi $temp $hum $pres" >> $filename
 	sleep 5
 done
