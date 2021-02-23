@@ -1,8 +1,8 @@
 #!/bin/bash
 
-timestamp=`date +%Y-%m-%d_%H-%M-%S`
+timestamp=$(date +%Y_%m_%d_%H_%M_%S)
 
-filename="log/$"timestamp".txt"
+filename="log/"$timestamp".txt"
 #filename="test"
 
 touch $filename
@@ -22,9 +22,9 @@ do
 	pres=${strarr[2]}
 
 	temp_pi=$(vcgencmd measure_temp | egrep -o '[0-9]*\.[0-9]*')
-	timestamp=`date +%Y-%m-%d_%H-%M-%S`
+	timestamp_meas=$(date +%Y_%m_%d_%H_%M_%S)
 
-	echo "$timestamp $temp_pi $temp $hum $pres"
-	echo "$timestamp $temp_pi $temp $hum $pres" >> $filename
+	echo "$timestamp_meas $temp_pi $temp $hum $pres"
+	echo "$timestamp_meas $temp_pi $temp $hum $pres" >> $filename
 	sleep 5
 done
