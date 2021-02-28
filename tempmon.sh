@@ -11,6 +11,8 @@ echo  "Created file: "$filename
 #printf "%-15s%5s\n" "Timestamp Temperature[°C]"
 #printf "%20s\n" "------------------"
 
+i2cdetect -y 1
+
 while true
 do  	
 	output=$(python drivers/bme280_read.py)
