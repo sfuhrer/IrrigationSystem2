@@ -13,7 +13,8 @@ echo  "Created file: "$filename
 
 i2cdetect -y 1
 
-while true
+i=0
+while [ $i -le 5 ]
 do  	
 	output=$(python drivers/bme280_read.py)
 
@@ -28,5 +29,7 @@ do
 
 	echo "$timestamp_meas $temp_pi $temp $hum $pres"
 	echo "$timestamp_meas $temp_pi $temp $hum $pres" >> $filename
+
+	i=$(( $i + 1 ))
 	sleep 5
 done
