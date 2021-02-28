@@ -13,8 +13,10 @@ echo  "Created file: "$filename
 
 i2cdetect -y 1
 
-i=0
-while [ $i -le 5 ]
+i_max=1440 #max iterations
+dt=60 #time step, seconds
+i=1
+while [ $i -le $i_max ]
 do  	
 	output=$(python /home/pi/IrrigationSystem2/drivers/bme280_read.py)
 
@@ -31,5 +33,5 @@ do
 	echo "$timestamp_meas $temp_pi $temp $hum $pres" >> $filename
 
 	i=$(( $i + 1 ))
-	sleep 5
+	sleep $dt
 done
