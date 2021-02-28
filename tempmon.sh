@@ -2,7 +2,7 @@
 
 timestamp=$(date +%Y_%m_%d_%H_%M_%S)
 
-filename="log/"$timestamp".txt"
+filename="/home/pi/IrrigationSystem2/log/"$timestamp".txt"
 #filename="test"
 
 touch $filename
@@ -16,7 +16,7 @@ i2cdetect -y 1
 i=0
 while [ $i -le 5 ]
 do  	
-	output=$(python drivers/bme280_read.py)
+	output=$(python /home/pi/IrrigationSystem2/drivers/bme280_read.py)
 
 	IFS='-' #setting - as delimiter
 	read -a strarr <<<"$output" #reading str as an array as tokens separated by IFS  
