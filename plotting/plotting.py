@@ -11,12 +11,10 @@ with open('../log/2021_03_06_09_59_33.txt') as f:
     time_datetime = [datetime.strptime(d, '%Y-%m-%d_%H:%M:%S') for d in timestamp_full]
     # Time = [datetime.datetime.strptime(line[0], "%H%M%S%f") for line in I020]
     # Time1 = [mdates.date2num(line) for line in Time]
-    temp = [float(line.split()[1]) for line in lines]
+    temp_int = [float(line.split()[1]) for line in lines]
     temp_ext = [float(line.split()[2]) for line in lines]
     hum = [float(line.split()[3]) for line in lines]
     pres = [float(line.split()[4]) for line in lines]
-
-    temp_np=np.asarray(temp)
 
 
 def timestamp_to_sec(timestamp):
@@ -40,7 +38,7 @@ ax1.xaxis.set_major_formatter(hfmt)
 ax1.set_xlabel('Time')
 ax1.set_ylabel('Temp [°]')
 plt.setp(ax1.get_xticklabels(), size=8)
-ax1.plot(xs, temp, linewidth=2)
+ax1.plot(xs, temp_ext, linewidth=2)
 ax1.xaxis.set_major_formatter(hfmt)
 plt.grid()
 
