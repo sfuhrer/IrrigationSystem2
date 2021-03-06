@@ -3,28 +3,18 @@
 #i2cdetect needed, otherwise I2C connection is not detected by driver
 i2cdetect -y 1
 
-i_max=144000 #max iterations
 dt=60 #time step, seconds
-i=1
-date_prev="0"
 
-filename="test"
+timestamp_file=$(date +%Y_%m_%d_%H_%M_%S)
+	
+filename="/home/pi/IrrigationSystem2/log/"$timestamp_file".txt"
+#filename="test"
 
-while [ $i -le $i_max ]
+touch $filename
+echo  "Created file: "$filename
+
+while [ true ]
 do  	
-	#check if new day, and open new file if so
-	timestamp_file=$(date +%Y_%m_%d_%H_%M_%S)
-	data_curr=${timestamp_file:0:10}
-
-	if [ "$date_curr" != "$data_prev" ];
-	then	
-		filename="/home/pi/IrrigationSystem2/log/"$timestamp_file".txt"
-		#filename="test"
-
-		touch $filename
-		echo  "Created file: "$filename
-	fi
-
 	output=$(python /home/pi/IrrigationSystem2/drivers/bme280_read.py)
 
 	#measurement data is separated by -
