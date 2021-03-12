@@ -1,3 +1,4 @@
 /log
 /plotting/venv
 /plotting/.idea
+/src/__pycache__
