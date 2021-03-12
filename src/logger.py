@@ -10,7 +10,7 @@ def log_state(f, x):
 def list_to_string(x):
     str1 = ""
     for ele in x:
-        str1 += str(ele)
+        str1 += format(ele, ".1f")
         str1 += " "
 
     return str1

@@ -2,3 +2,4 @@
 /plotting/venv
 /plotting/.idea
 /src/__pycache__
+*.pyc
