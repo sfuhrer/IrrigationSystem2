@@ -10,12 +10,15 @@ log_file_name = "log_" + current_time + ".txt"
 log_file_path = "/home/pi/IrrigationSystem2/log/" + log_file_name
 print("created " + log_file_name)
 
-i=1
-while i < 100:
+while True:
+    # get measurements
     x = bme280_get_states() #hum, temp, pres
+    
+    # log data
     #f = open("../log/" + log_file_name, 'a')
     f = open(log_file_path, 'a')
     logger.log_state(f, x)
     f.close()
-    i +=1
-    time.sleep(5)
+    
+    # sleep for 1min
+    time.sleep(60)
