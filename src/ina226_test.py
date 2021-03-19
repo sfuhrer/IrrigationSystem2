@@ -1,4 +1,4 @@
-from ina226 import INA226
+from lib.ina226 import INA226
 
 
 if __name__ == '__main__':

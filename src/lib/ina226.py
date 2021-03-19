@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from Adafruit_I2C import Adafruit_I2C
+from lib.Adafruit_I2C import Adafruit_I2C
 
 # ==================================================
 # =   INA226 Class                                 =
