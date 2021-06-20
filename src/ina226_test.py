@@ -7,6 +7,6 @@ if __name__ == '__main__':
     current = sensor.get_current()
     power = sensor.get_power()
 
-    print("volage:")
-    print(voltage)
-
+    print("voltage: " + str(voltage))
+    print("current: " + str(current))
+    print("power: " + str(power))
