@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from lib.Adafruit_I2C import Adafruit_I2C
+from Adafruit_I2C import Adafruit_I2C
 
 # ==================================================
 # =   INA226 Class                                 =
@@ -11,7 +11,7 @@ class INA226(Adafruit_I2C):
     # Constructor
     def __init__(self, debug=False, adr=0x41, bus=1):
         Adafruit_I2C.__init__(self, adr, bus, debug)
-        # シャント抵抗値をセット 0.002Ω
+        #0.002ohm
         Adafruit_I2C.writeList(self, 0x05, [0x0a, 0x00])
 
     def get_voltage(self):

@@ -18,7 +18,7 @@ class Adafruit_I2C(object):
                 result = ((result << 8) & 0xFF00) + (result >> 8)
             return result
         except:
-            return print("error")
+            print("error")
         
     def __init__(self, address, busnum=-1, debug=False):
         self.address = address
@@ -37,7 +37,7 @@ class Adafruit_I2C(object):
                 print (list)
             self.bus.write_i2c_block_data(self.address, reg, list)
         except:
-            return print("error")
+            r#eturn print("error")
 
 
 if __name__ == '__main__':
