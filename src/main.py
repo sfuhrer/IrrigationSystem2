@@ -3,6 +3,8 @@ import logger as logger
 from datetime import datetime
 from bme280_read import bme280_get_states
 from ina226 import INA226
+import PumpController
+import HelperFunctions
 
 now = datetime.now()
 current_time = now.strftime("%Y-%m-%d_%H_%M_%S")
@@ -10,6 +12,10 @@ current_time = now.strftime("%Y-%m-%d_%H_%M_%S")
 log_file_name = "log_" + current_time + ".txt"
 log_file_path = "/home/pi/IrrigationSystem2/log/" + log_file_name
 print("created " + log_file_name)
+
+DataIntervalSec = 60
+
+TempLast24h = [0]*int((24*3600/DataIntervalSec))
 
 while True:
     # get measurements
@@ -22,6 +28,16 @@ while True:
 
     x.append(voltage)
     x.append(current)
+
+    TempFilt24 = HelperFunctions.CalcAverage(TempLast24h, x[1])
+    AverageTemp24 = TempFilt24[-1]
+    x.append(AverageTemp24)
+
+    # every day at 08.00 start Pump controller
+    if (now.hour == 8 and now.min == 0):
+        
+        #PumpController.Start(AverageTemp24)
+
 
     # log data
     #f = open("../log/" + log_file_name, 'a')
