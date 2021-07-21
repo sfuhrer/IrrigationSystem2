@@ -35,10 +35,17 @@ while True:
 
     f = open(log_file_path, 'a')
 
+    print(now.hour)
+    print(now.minute)
+
     # every day at 08.00 start Pump controller
-    if (now.hour == 11 and now.min == 42): 
-        logger.log_message(f, "test")       
-        logger.log_message(f, PumpController.Start(AverageTemp24))
+
+
+    if (now.hour == 11 and now.minute == 50):
+        logger.log_message(f, "test")
+        pumpResult = PumpController.Start(AverageTemp24)
+        logger.log_message(f, pumpResult)
+        print(pumpResult)
 
 
     # log data
