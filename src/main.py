@@ -42,7 +42,7 @@ while True:
     # every day at 08.00 start Pump controller
 
 
-    if (now.hour == 11 and now.minute == 55):
+    if (now.hour == 12 and now.minute == 8):
         logger.log_message(f, "test")
         pumpResult = PumpController.Start(AverageTemp24)
         logger.log_message(f, pumpResult)

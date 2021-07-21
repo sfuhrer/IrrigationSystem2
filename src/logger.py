@@ -9,7 +9,7 @@ def log_state(f, x):
 def log_message(f, message):
         now = datetime.now()
         current_time = now.strftime("%Y-%m-%d_%H:%M:%S")
-        f.write(current_time + message + '\n')
+        f.write(current_time + " " + str(message) + '\n')
 
 
 def list_to_string(x):

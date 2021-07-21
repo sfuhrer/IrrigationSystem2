@@ -47,4 +47,3 @@ for idx, val in enumerate(test):
 
 import logger
 
-print(logger.list_to_string(test))
