@@ -16,19 +16,23 @@ minutes = now.minute
 
 print(minutes)
 
+print("Pump controller started")
+
 if (hour == 23 and minutes == 31):
     print(now.hour)
 
 DataIntervalSec = 60
 
-TempLast24h = [0]*(int(1*3600/DataIntervalSec))
+TempLast24h = [0]*(int(1*900/DataIntervalSec))
 
 print(TempLast24h)
 
 
+import PumpController
+
 import HelperFunctions
 
 for i in range(0,5):
-    HelperFunctions.CalcAverage(list, 5)
-    print(list)
+    HelperFunctions.CalcAverage(TempLast24h, 5)
+    print(TempLast24h)
     # print(list[len(list)-1]

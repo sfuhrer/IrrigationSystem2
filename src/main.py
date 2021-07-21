@@ -34,9 +34,8 @@ while True:
     x.append(AverageTemp24)
 
     # every day at 08.00 start Pump controller
-    if (now.hour == 8 and now.min == 0):
-        
-        #PumpController.Start(AverageTemp24)
+    if (now.hour == 9 and now.min == 40):        
+        PumpController.Start(AverageTemp24)
 
 
     # log data
