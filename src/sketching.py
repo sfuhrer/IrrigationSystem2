@@ -36,3 +36,15 @@ for i in range(0,5):
     HelperFunctions.CalcAverage(TempLast24h, 5)
     print(TempLast24h)
     # print(list[len(list)-1]
+
+test = [1.233, 1.456, 3.45, 3.44, 1.4445, 9.009]
+
+print(test)
+
+for idx, val in enumerate(test):
+    if (idx) == 0:
+        print(val)
+
+import logger
+
+print(logger.list_to_string(test))

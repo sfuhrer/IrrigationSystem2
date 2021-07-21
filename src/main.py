@@ -33,14 +33,17 @@ while True:
     AverageTemp24 = TempFilt24[-1]
     x.append(AverageTemp24)
 
+    f = open(log_file_path, 'a')
+
     # every day at 08.00 start Pump controller
-    if (now.hour == 9 and now.min == 40):        
-        PumpController.Start(AverageTemp24)
+    if (now.hour == 11 and now.min == 42): 
+        logger.log_message(f, "test")       
+        logger.log_message(f, PumpController.Start(AverageTemp24))
 
 
     # log data
     #f = open("../log/" + log_file_name, 'a')
-    f = open(log_file_path, 'a')
+    
     logger.log_state(f, x)
     f.close()
     
