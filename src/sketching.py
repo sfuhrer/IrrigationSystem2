@@ -47,3 +47,7 @@ for idx, val in enumerate(test):
 
 import logger
 
+
+meas = -2.3
+
+print(format(meas, "0.2f"))

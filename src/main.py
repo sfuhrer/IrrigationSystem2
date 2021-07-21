@@ -26,6 +26,8 @@ while True:
     current = sensor.get_current()
     power = sensor.get_power()
 
+    print(current)
+
     x.append(voltage)
     x.append(current)
 
