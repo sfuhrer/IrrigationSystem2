@@ -51,3 +51,6 @@ import logger
 meas = -2.3
 
 print(format(meas, "0.2f"))
+
+testnumber = 8
+print("test: ", testnumber)
