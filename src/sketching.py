@@ -28,8 +28,6 @@ TempLast24h = [0]*(int(1*900/DataIntervalSec))
 print(TempLast24h)
 
 
-import PumpController
-
 import HelperFunctions
 
 for i in range(0,5):
@@ -54,3 +52,12 @@ print(format(meas, "0.2f"))
 
 testnumber = 8
 print("test: ", testnumber)
+
+TempFilt24 = 40
+if (TempFilt24 > 30):
+    PumpDuration = 200
+else:
+    PumpDuration = 100
+
+str = "Pump controller started, average temp last 24h: " + str(TempFilt24) + "°C " + "Duration: " + str(PumpDuration) + "s"
+print(str)

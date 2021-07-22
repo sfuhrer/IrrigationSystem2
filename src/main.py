@@ -39,7 +39,7 @@ while True:
 
     now = datetime.now()
     # every day at 08.00 start Pump controller
-    if (now.hour == 21 and now.minute == 38):
+    if (now.hour == 21 and now.minute == 53):
         #logger.log_message(f, "test")
         pumpResult = PumpController.Start(AverageTemp24)
         logger.log_message(f, pumpResult)
