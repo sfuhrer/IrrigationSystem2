@@ -13,7 +13,7 @@ log_file_name = "log_" + current_time + ".txt"
 log_file_path = "/home/pi/IrrigationSystem2/log/" + log_file_name
 print("created " + log_file_name)
 
-DataIntervalSec = 30
+DataIntervalSec = 60
 
 TempLast24h = [0]*int((24*3600/DataIntervalSec))
 
@@ -39,7 +39,7 @@ while True:
 
     now = datetime.now()
     # every day at 08.00 start Pump controller
-    if (now.hour == 22 and now.minute == 1):
+    if (now.hour == 22 and now.minute == 8):
         #logger.log_message(f, "test")
         pumpResult = PumpController.Start(AverageTemp24)
         logger.log_message(f, pumpResult)

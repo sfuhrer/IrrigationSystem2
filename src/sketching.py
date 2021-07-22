@@ -9,6 +9,7 @@ list = [1,2,0,0,0,0]
 # print(list)
 
 import datetime
+import typing_extensions
 
 now = datetime.datetime.now()
 hour = now.hour
@@ -59,5 +60,13 @@ if (TempFilt24 > 30):
 else:
     PumpDuration = 100
 
-str = "Pump controller started, average temp last 24h: " + str(TempFilt24) + "°C " + "Duration: " + str(PumpDuration) + "s"
-print(str)
+
+
+def testStrFunc():
+    messagestr = "Pump controller started, average temp last 24h: " + str(TempFilt24) + "°C " + "Duration: " + str(PumpDuration) + "s"
+    return messagestr
+
+
+print(testStrFunc())
+
+print("hello")

@@ -10,7 +10,7 @@ def Start(TempFilt24):
     else:
         PumpDuration = 100
 
-    string = "Pump controller started, average temp last 24h: " + str(TempFilt24) + " deg " + "Duration: " + str(PumpDuration) + "s"
-    print(str)
+    feedbackString = "Pump controller started, average temp last 24h: " + str(TempFilt24) + " deg " + "Duration: " + str(PumpDuration) + "s"
+    print(feedbackString)
     PumpDriver.RunPump(PumpDuration)
-    return str
+    return feedbackString
