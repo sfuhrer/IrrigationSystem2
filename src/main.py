@@ -13,6 +13,12 @@ log_file_name = "log_" + current_time + ".txt"
 log_file_path = "/home/pi/IrrigationSystem2/log/" + log_file_name
 print("created " + log_file_name)
 
+# run the pump when started
+f = open(log_file_path, 'a')
+pumpResult = PumpController.Start(20)
+logger.log_message(f, pumpResult)
+f.close()
+
 DataIntervalSec = 60
 
 TempLast24h = [0]*int((24*3600/DataIntervalSec))
